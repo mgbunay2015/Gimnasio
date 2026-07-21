@@ -1,0 +1,13 @@
+target/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+*.class
+*.log
+.env
+.DS_Store
+clave.txt
+client secret.txt

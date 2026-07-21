@@ -1,0 +1,100 @@
+{
+  "realm": "gym-system",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed": false,
+  "roles": {
+    "realm": [
+      {
+        "name": "MEMBER",
+        "description": "Socio del gimnasio - reserva cupos en sus clases"
+      },
+      {
+        "name": "TRAINER",
+        "description": "Entrenador - gestiona asistencia de sus clases"
+      },
+      {
+        "name": "ADMIN",
+        "description": "Personal administrativo - acceso total a reservas"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "gym-app",
+      "name": "Gym Application",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "gym-app-secret-2026",
+      "publicClient": false,
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": true,
+      "serviceAccountsEnabled": false,
+      "protocol": "openid-connect",
+      "redirectUris": [
+        "*",
+        "https://oauth.pstmn.io/v1/callback",
+        "http://localhost/*",
+        "http://localhost:8080/*"
+      ],
+      "webOrigins": ["*"],
+      "attributes": {
+        "access.token.lifespan": "3600"
+      }
+    }
+  ],
+  "users": [
+    {
+      "username": "member.test",
+      "enabled": true,
+      "email": "member.test@gym.local",
+      "firstName": "Socio",
+      "lastName": "Prueba",
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "member123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["MEMBER"]
+    },
+    {
+      "username": "trainer.test",
+      "enabled": true,
+      "email": "trainer.test@gym.local",
+      "firstName": "Entrenador",
+      "lastName": "Prueba",
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "trainer123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["TRAINER"]
+    },
+    {
+      "username": "admin.test",
+      "enabled": true,
+      "email": "admin.test@gym.local",
+      "firstName": "Admin",
+      "lastName": "Gimnasio",
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["ADMIN"]
+    }
+  ]
+}
